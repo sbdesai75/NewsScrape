@@ -5,6 +5,8 @@ var mongoose = require("mongoose");
 var Note = require("./models/Note.js");
 var Article = require("./models/Article.js");
 var request = require("request");
+require('dotenv').config()
+console.log(process.env.MONGODB_URI)
 var cheerio = require("cheerio");
 
 mongoose.Promise = Promise;
@@ -58,7 +60,7 @@ app.get("/", function(request, response) {
 app.get("/scrape", function(req, res) {
 
   // First, we grab the body of the html with request
-  request("http://www.echojs.com/", function(error, response, html) {
+  request("http://www.espn.com/", function(error, response, html) {
 
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
