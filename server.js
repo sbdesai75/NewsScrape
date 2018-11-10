@@ -13,7 +13,10 @@ mongoose.Promise = Promise;
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
-const port = process.env.PORT || 5000;
+//const port = process.env.PORT || 5000;
+var PORT = process.env.PORT || 3000;
+
+app.listen(PORT, function() {
 
 // Initialize Express
 var app = express();
